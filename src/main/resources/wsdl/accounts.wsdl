@@ -1,0 +1,93 @@
+<definitions xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://demo.example.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://demo.example.com/" name="BottomUpServiceImplService">
+    <types>
+        <xsd:schema>
+            <xsd:import namespace="http://demo.example.com/" schemaLocation="accounts.xsd"/>
+        </xsd:schema>
+    </types>
+    <message name="getAccountByAcctno">
+        <part name="parameters" element="tns:getAccountByAcctno"/>
+    </message>
+    <message name="getAccountByAcctnoResponse">
+        <part name="parameters" element="tns:getAccountByAcctnoResponse"/>
+    </message>
+    <message name="createNew">
+        <part name="parameters" element="tns:createNew"/>
+    </message>
+    <message name="createNewResponse">
+        <part name="parameters" element="tns:createNewResponse"/>
+    </message>
+    <message name="getAllAccounts">
+        <part name="parameters" element="tns:getAllAccounts"/>
+    </message>
+    <message name="getAllAccountsResponse">
+        <part name="parameters" element="tns:getAllAccountsResponse"/>
+    </message>
+    <message name="getPokus">
+        <part name="parameters" element="tns:getPokus"/>
+    </message>
+    <message name="getPokusResponse">
+        <part name="parameters" element="tns:getPokusResponse"/>
+    </message>
+    <portType name="BottomUpServiceInterface">
+        <operation name="getAccountByAcctno">
+            <input wsam:Action="http://demo.example.com/BottomUpServiceInterface/getAccountByAcctnoRequest" message="tns:getAccountByAcctno"/>
+            <output wsam:Action="http://demo.example.com/BottomUpServiceInterface/getAccountByAcctnoResponse" message="tns:getAccountByAcctnoResponse"/>
+        </operation>
+        <operation name="createNew">
+            <input wsam:Action="http://demo.example.com/BottomUpServiceInterface/createNewRequest" message="tns:createNew"/>
+            <output wsam:Action="http://demo.example.com/BottomUpServiceInterface/createNewResponse" message="tns:createNewResponse"/>
+        </operation>
+        <operation name="getAllAccounts">
+            <input wsam:Action="http://demo.example.com/BottomUpServiceInterface/getAllAccountsRequest" message="tns:getAllAccounts"/>
+            <output wsam:Action="http://demo.example.com/BottomUpServiceInterface/getAllAccountsResponse" message="tns:getAllAccountsResponse"/>
+        </operation>
+        <operation name="getPokus">
+            <input wsam:Action="http://demo.example.com/BottomUpServiceInterface/getPokusRequest" message="tns:getPokus"/>
+            <output wsam:Action="http://demo.example.com/BottomUpServiceInterface/getPokusResponse" message="tns:getPokusResponse"/>
+        </operation>
+    </portType>
+    <binding name="BottomUpServiceImplPortBinding" type="tns:BottomUpServiceInterface">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <operation name="getAccountByAcctno">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="createNew">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="getAllAccounts">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+        <operation name="getPokus">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="BottomUpServiceImplService">
+        <port name="BottomUpServiceImplPort" binding="tns:BottomUpServiceImplPortBinding">
+            <soap:address location="http://127.0.1.1:8182/service/bottomup"/>
+        </port>
+    </service>
+</definitions>

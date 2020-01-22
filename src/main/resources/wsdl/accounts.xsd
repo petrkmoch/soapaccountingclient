@@ -1,0 +1,62 @@
+<xs:schema xmlns:tns="http://demo.example.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://demo.example.com/">
+    <xs:element name="createNew" type="tns:createNew"/>
+    <xs:element name="createNewResponse" type="tns:createNewResponse"/>
+    <xs:element name="getAccountByAcctno" type="tns:getAccountByAcctno"/>
+    <xs:element name="getAccountByAcctnoResponse" type="tns:getAccountByAcctnoResponse"/>
+    <xs:element name="getAllAccounts" type="tns:getAllAccounts"/>
+    <xs:element name="getAllAccountsResponse" type="tns:getAllAccountsResponse"/>
+    <xs:element name="getPokus" type="tns:getPokus"/>
+    <xs:element name="getPokusResponse" type="tns:getPokusResponse"/>
+    <xs:complexType name="getAllAccounts">
+        <xs:sequence/>
+    </xs:complexType>
+    <xs:complexType name="getAllAccountsResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:glAccount" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="glAccount">
+        <xs:sequence>
+            <xs:element name="acctNo" type="xs:string" minOccurs="0"/>
+            <xs:element name="description" type="xs:string" minOccurs="0"/>
+            <xs:element name="glAccountType" type="tns:glAccountType" minOccurs="0"/>
+            <xs:element name="id" type="xs:long" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getPokus">
+        <xs:sequence/>
+    </xs:complexType>
+    <xs:complexType name="getPokusResponse">
+        <xs:sequence>
+            <xs:element name="return" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getAccountByAcctno">
+        <xs:sequence>
+            <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="getAccountByAcctnoResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:glAccount" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="createNew">
+        <xs:sequence>
+            <xs:element name="arg0" type="tns:glAccount" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="createNewResponse">
+        <xs:sequence>
+            <xs:element name="return" type="tns:glAccount" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="glAccountType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="BD"/>
+            <xs:enumeration value="BC"/>
+            <xs:enumeration value="PLD"/>
+            <xs:enumeration value="PLC"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
