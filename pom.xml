@@ -58,9 +58,9 @@
                             <goal>wsimport</goal>
                         </goals>
                         <configuration>
-                            <wsdlDirectory>src/main/resources/wsdl</wsdlDirectory>
+<!--                            <wsdlDirectory>src/main/resources/wsdl</wsdlDirectory>-->
                             <wsdlUrls>
-                                <wsdlUrl>http://127.0.1.1:8182/service/bottomup?wsdl</wsdlUrl>
+                                <wsdlUrl>http://accounting2-myproject.192.168.99.100.nip.io/service/bottomup?wsdl</wsdlUrl>
                             </wsdlUrls>
                             <!--sourceDestDir>src/main/java/com/kmoch/accounting/accountingsoapclient/gen</sourceDestDir-->
                             <packageName>com.kmoch.accounting.accountingsoapclient.gen</packageName>
